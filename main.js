@@ -28,18 +28,18 @@ for (let i = 0; i < cellElementArray.length; i++) {
     // console log the id of the cell being clicked on
     if (currentPlayer === "X") {
       clickedCellElement.innerHTML = "X";
-      currentPlayer = "O";
       playerXSelections.push(Number(clickedCellElement.id));
+      if (checkForWin(winningCombinations, playerXSelections)) {
+        alert(currentPlayer + " wins");
+      }
+      currentPlayer = "O";
     } else {
       clickedCellElement.innerHTML = "O";
-      currentPlayer = "X";
       playerOSelections.push(Number(clickedCellElement.id));
-    }
-    if(checkForWin(winningCombinations, playerXSelections)){
-        alert(currentPlayer+" wins")
-    }
-    if(checkForWin(winningCombinations, playerOSelections)){
-        alert(currentPlayer+" wins")
+      if (checkForWin(winningCombinations, playerOSelections)) {
+        alert(currentPlayer + " wins");
+      }
+      currentPlayer = "X";
     }
   });
 }
